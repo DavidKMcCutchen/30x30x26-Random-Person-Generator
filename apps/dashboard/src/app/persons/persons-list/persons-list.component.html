@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Random Generated Person</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let result of results" data-test="persons-list-item" (click)="selected.emit(result)">
+        <h3 matLine>{{result.name.title +   result.name.first +   result.name.last}}</h3>
+        <p matLine> Gender: {{result.gender}}</p>
+
+        <p matLine> City: {{result.location.city}}</p>
+        <p matLine> State: {{result.location.state}}</p>
+        <p matLine> Postal Code: {{result.location.postcode}}</p>
+
+        <p matLine> Email: {{result.email}}</p>
+
+        <p matLine> DOB: {{result.dob.date}}</p>
+        <p matLine> Age: {{result.dob.age}}</p>
+
+        <p matLine> Phone: {{result.phone}}</p>
+        <p matLine> Cell: {{result.cell}}</p>
+
+        <p matLine> Name: {{result.id.name}}</p>
+        <p matLine> ID: {{result.id.value}}</p>
+
+        <p matLine> Picture (L): {{result.picture.large}}</p>
+        <p matLine> Picture (M): {{result.picture.medium}}</p>
+        <p matLine> Picture Thumbnail: {{result.picture.thumbnail}}</p>
+
+        <p matLine> Nationality: {{result.nat}}</p>
+
+
+
+        
+        <button mat-icon-button (click)="resultViewed.emit(result.id.name); $event.stopImmediatePropagation()">
+          <mat-icon *ngIf="!readonly">chevron_left</mat-icon>
+        </button>
+
+
+        <button mat-icon-button (click)="deleted.emit(result); $event.stopImmediatePropagation()">
+          <mat-icon *ngIf="!readonly">delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

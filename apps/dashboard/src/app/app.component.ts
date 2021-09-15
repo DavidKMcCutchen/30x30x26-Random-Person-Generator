@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@random-person-app/api-interfaces';
 
 @Component({
   selector: 'random-person-app-root',
@@ -8,6 +6,9 @@ import { Message } from '@random-person-app/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  title= 'Random Person Generator';
+  links= [
+    {path: '', icon: 'home', title: 'Home'},
+    {path: '/api', icon: 'view_list', title: 'Random Person'}
+  ]
 }

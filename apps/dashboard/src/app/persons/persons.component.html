@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="col-50" layout="row" layout-align="center center">
+      <random-person-app-persons-list
+        [results]="allResults$ | async"
+        (selected)="selectResult($event)"
+        (deleted)="deleteResult($event)"
+        (resultViewed)="viewResult($event)"
+      ></random-person-app-persons-list>
+    </div>
+    <div class="col-50" layout="row" layout-align="center center">
+      <random-person-app-persons-details
+        [result]="selectedResult$ | async"
+        (saved)="saveResult($event)"
+        (cancelled)="resetResult()"
+        [form]="form"
+      ></random-person-app-persons-details>
+    </div>
+  </div>
